@@ -19,5 +19,14 @@ def iterative_fib(n)
 end
 puts iterative_fib(10)
 puts iterative_fib(9)
-puts iterative_fib(7)
+puts iterative_fib(1)
 puts iterative_fib(3)
+
+require 'benchmark'
+
+n = 35
+Benchmark.bm do |x|
+  x.report { for i in 1..n; a = "1"; end }
+  x.report { n.times do   ; a = "1"; end }
+  x.report { 1.upto(n) do ; a = "1"; end }
+end
